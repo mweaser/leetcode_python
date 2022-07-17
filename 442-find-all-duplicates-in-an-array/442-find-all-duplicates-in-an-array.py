@@ -13,6 +13,6 @@ class Solution:
         for i, num in enumerate(nums):
             if (i + 1) != num:
                 duplicateNumbers.append(num)
-                i += 1
+                
 
         return duplicateNumbers
