@@ -1,18 +1,18 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        i, n = 0, len(nums)
-        while i < n:
+        i = 0
+        while i < len(nums):
             j = nums[i]
-            if nums[i] < n and nums[i] != nums[j]:
-                nums[i], nums[j] = nums[j], nums[i]  # swap
+            if (nums[i] < len(nums) and nums[i] != nums[j]):
+                nums[i], nums[j] = nums[j], nums[i]
             else:
-                i += 1
-
-      # find the first number missing from its index, that will be our required number
-        for i in range(n):
+                i+=1
+        
+    
+        for i in range(len(nums)):
             if nums[i] != i:
                 return i
-
-        return n
+            
+        return len(nums)
 
        
