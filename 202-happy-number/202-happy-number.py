@@ -11,11 +11,11 @@ class Solution:
             
             
     def helper(self, num):
-        _sum = 0
+        sum = 0
         
         while num > 0:
             digit = num % 10
-            _sum += digit * digit
+            sum += digit * digit
             num //= 10
-        return _sum
+        return sum
         
