@@ -4,8 +4,7 @@ class Solution:
         if not nums:
             return
         
-        subsets = []
-        subsets.append([])
+        subsets = [[]]
         
         for currentNumber in nums:
             
