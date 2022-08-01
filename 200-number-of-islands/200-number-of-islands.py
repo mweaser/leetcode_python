@@ -6,17 +6,14 @@ class Solution:
         visited = set()
         count = 0
         
-        
-        def bfs(r, c):
-            queue = collections.deque()
+        def bfs(r,c):
+            queue = deque()
             queue.append((r,c))
             visited.add((r,c))
-            
             directions = [[1,0],[-1,0],[0,1],[0,-1]]
             
             while queue:
                 row, col = queue.popleft()
-                
                 for dr, dc in directions:
                     r = row + dr
                     c = col + dc
@@ -29,6 +26,5 @@ class Solution:
             for c in range(cols):
                 if grid[r][c] == "1" and (r,c) not in visited:
                     bfs(r,c)
-                    count+=1
-        
+                    count += 1
         return count
