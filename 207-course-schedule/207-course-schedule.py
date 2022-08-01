@@ -21,5 +21,5 @@ class Solution:
            
         for course in range(numCourses):
             if not dfs(course): return False
-        
+            
         return True
