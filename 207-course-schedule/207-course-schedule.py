@@ -1,13 +1,15 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         
-        # preMap = {}
+        
         visited = set()
         
         preMap = {i:[] for i in range(numCourses)}
         for crs, pre, in prerequisites:
             preMap[crs].append(pre)
-        
+            
+        print(preMap)
+        # preMap = {}   
 #         for i in range(len(prerequisites)):
 #             course = prerequisites[i][0]
 #             prereq = prerequisites[i][1]
