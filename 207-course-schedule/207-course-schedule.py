@@ -9,16 +9,17 @@ class Solution:
             preMap[crs].append(pre)
             
         print(preMap)
-        # preMap = {}   
-#         for i in range(len(prerequisites)):
-#             course = prerequisites[i][0]
-#             prereq = prerequisites[i][1]
-            
-#             if course not in preMap:
-#                 preMap[course] = []
-            
-#             preMap[course].append(prereq)
         
+        preMap1 = {}   
+        for i in range(len(prerequisites)):
+            course = prerequisites[i][0]
+            prereq = prerequisites[i][1]
+            
+            if course not in preMap1:
+                preMap1[course] = []
+            
+            preMap1[course].append(prereq)
+        print(preMap1)
         
         def dfs(course):
          
