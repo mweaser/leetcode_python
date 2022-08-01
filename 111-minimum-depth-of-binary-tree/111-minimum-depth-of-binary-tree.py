@@ -1,31 +1,21 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+from collections import *
+
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        
-        minimumDepth = 0
-        
         if not root:
             return 0
         
-        queue = deque()
-        queue.append(root)
-        
-        while queue:
-            minimumDepth += 1
-            for _ in range(len(queue)):
-                currentNode = queue.popleft()
-                
-                if currentNode.left is None and currentNode.right is None:
-                    return minimumDepth
-                
-                if currentNode.left:
-                    queue.append(currentNode.left)
-                if currentNode.right:
-                    queue.append(currentNode.right)
-        
-        
+        q = deque()
+        q.append(root)
+        depth = 0
+        while q:
+            depth += 1
+            for i in range(len(q)):
+                currNode = q.popleft()
+                if not currNode.left and not currNode.right:
+                    return depth
+                if currNode.left:
+                    q.append(currNode.left)
+                if currNode.right:
+                    q.append(currNode.right)
+        return -1
