@@ -5,7 +5,7 @@ class Solution:
     
         for i in range(n - 1):
             tmp = one
-            one = one + two
+            one += two
             two = tmp
             
         return one
