@@ -5,34 +5,31 @@ class Solution:
         
         final = []
         
-        while len(matrix) > 0:
+        top, bottom = 0, len(matrix)
+        left, right = 0, len(matrix[0])
         
-            top = matrix.pop(0)
-            final.extend(top)
+        while top < bottom and left < right:
+            #top
+            for i in range(left, right):
+                final.append(matrix[top][i])
+            top += 1
             
-            right = []
-            for i in range(len(matrix)):
-                if len(matrix[i]) == 0:
-                    break
-                right.append(matrix[i].pop(-1))
-            final.extend(right)
+            #right
+            for i in range(top, bottom):
+                final.append(matrix[i][right-1])
+            right -= 1
             
-            if len(matrix) == 0:
+            if not (top < bottom and left < right):
                 break
-                
-            bottom = (matrix.pop(len(matrix)-1)) 
-            bottom.reverse()
-            final.extend(bottom)
             
-            left = [] 
-            for i in reversed(range(len(matrix))):
-                if len(matrix[i]) == 0:
-                    break
-                left.append(matrix[i].pop(0))
-            final.extend(left)
+            #bottom
+            for i in range(right - 1, left - 1, -1):
+                final.append(matrix[bottom - 1][i])
+            bottom -= 1
             
-        return final
+            #left
+            for i in range(bottom - 1, top - 1, -1):
+                final.append(matrix[i][left])
+            left += 1
         
-      
-
-    
+        return final
