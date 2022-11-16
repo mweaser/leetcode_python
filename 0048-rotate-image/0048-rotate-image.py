@@ -6,22 +6,33 @@ class Solution:
         
         res = []
         
-        top = 0
-        bottom = len(matrix)
-        left = 0
-        right = len(matrix[0])
+        t = 0
+        b = len(matrix)
         
-        while left < right:
-            curr = []
-            for i in range(top, bottom):
-                curr.append(matrix[i][left])
-            # print("curr:", curr)
-            left += 1
-            curr.reverse()
-            res.append(curr)
-            
-        for i in range(len(matrix)):
-            matrix[i] = res[i]
+        l = 0
+        r = len(matrix[0]) -1
+        
+        while l < r:
+            for i in range(r - l):
+                top, bottom = l, r
+                
+                top_left = matrix[top][l + i]
+                
+                #bottom_left into top_left
+                matrix[top][l + i] = matrix[bottom - i][l]
+                
+                #bottom_right into bottom_left
+                matrix[bottom - i][l] = matrix[bottom][r - i]
+                
+                #top_right into bottom_right
+                matrix[bottom][r - i] = matrix[top + i][r]
+                
+                #top_left tmp into top_right
+                matrix[top + i][r] = top_left
+            l += 1
+            r -= 1
+                        
+                  
 
 
             
