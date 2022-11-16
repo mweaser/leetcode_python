@@ -19,13 +19,10 @@ class Solution:
             left += 1
             curr.reverse()
             res.append(curr)
-            print("res is now:", res)
             
         for i in range(len(matrix)):
             matrix[i] = res[i]
 
 
-            
-                
             
         
