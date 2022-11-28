@@ -10,35 +10,10 @@ from collections import deque
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
-            return
+            return None
         
-        q = deque()
-        q.append(root)
-        
-        while q:
-            for i in range(len(q)):
-                curr = q.popleft()
-                
-                if curr.left and curr.right:
-                    tmp = curr.left
-                    curr.left = curr.right
-                    curr.right = tmp
-                    q.append(curr.left)
-                    q.append(curr.right)
-
-                elif curr.right and not curr.left:
-                    q.append(curr.right)
-                    curr.left = curr.right
-                    curr.right = None        
-                
-                elif curr.left and not curr.right:
-                    q.append(curr.left)
-                    curr.right = curr.left
-                    curr.left = None
-
-            
-                    
-               
-            
+        right = self.invertTree(root.right)
+        left = self.invertTree(root.left)
+        root.left = right
+        root.right = left
         return root
-        
