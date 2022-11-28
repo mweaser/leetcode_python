@@ -6,15 +6,12 @@ class Solution:
         r = len(height) - 1
         
         while l < r:
-            
-            curr_area = min(height[l], height[r]) * (r - l)
-            print(curr_area)
+            curr_area = (r - l) * min(height[r], height[l])
             max_area = max(max_area, curr_area)
             
-            if height[l] <= height[r]:
+            if height[l] < height[r]:
                 l += 1
             else:
                 r -= 1
-        
+                
         return max_area
-        
