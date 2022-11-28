@@ -13,11 +13,12 @@ class Solution:
         while l <= r:
             if nums[l] < nums[r]:
                 res = min(res, nums[l])
+                print(str(res) + "a")
                 break
             
             m = (l + r) // 2
             res = min(res, nums[m])
-            print(m)
+            print(str(res) + "b")
             
             if nums[m] >= nums[l]:
                 l = m + 1
