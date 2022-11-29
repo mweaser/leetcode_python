@@ -7,9 +7,8 @@ class Solution:
         for n in nums:
             if curr_sum < 0:
                 curr_sum = 0
-                
+            
             curr_sum += n
-                
             max_sub = max(max_sub, curr_sum)
-        
+            
         return max_sub
