@@ -1,26 +1,20 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        
-        res = max(nums)
-        cur_min, cur_max = 1, 1
+   
+        max_prod = 1
+        min_prod = 1
+        res = nums[0]
         
         for n in nums:
-            if n == 0:
-                cur_min, cur_max = 1, 1
-                continue
-            tmp = cur_max * n
-            cur_max = max(cur_max * n, cur_min * n, n)
-            cur_min = min(tmp, cur_min * n, n)
-            res = max(res, cur_max)
+            
+            tmp_max = max_prod
+            max_prod = max(max_prod * n, min_prod * n, n)
+            min_prod = min(tmp_max * n, min_prod * n, n)
+            
+            res = max(res, max_prod)
         
         return res
-        
-        
-            
-            
-            
             
         
-    
         
         
