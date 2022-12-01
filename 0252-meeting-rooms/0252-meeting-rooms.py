@@ -8,7 +8,6 @@ class Solution:
             return True
         
         prev = intervals[0]
-        print(intervals)
         
         for i in range(1,len(intervals)):
             curr = intervals[i]
