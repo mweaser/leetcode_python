@@ -7,16 +7,16 @@ class Solution:
                 seen[n] = 0
             seen[n] += 1
             
-        res = list(seen.items())  
-        res.sort(key = lambda x: x[1])
-        res.reverse()
+        freq = list(seen.items())
+        freq.sort(key = lambda x: x[1])
+        freq.reverse()
         
-        final = []
+        res = []
         
         while k:
-            final.append(res[0][0])
-            res.pop(0)
-            k-=1
-        
-        return final
+            res.append(freq[0][0])
+            freq.pop(0)
+            k -= 1
+            
+        return res
         
