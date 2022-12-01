@@ -17,20 +17,19 @@ class Solution:
         q = deque([root])
         
         while q:
-            
+            c = []
             for _ in range(len(q)):
                 n = q.popleft()
                 res.append(n.val)
                 
                 if n.left:
                     q.append(n.left)
-                
+                    
                 if n.right:
                     q.append(n.right)
         
         res.sort()
         return res[k-1]
                 
-        
         
         
