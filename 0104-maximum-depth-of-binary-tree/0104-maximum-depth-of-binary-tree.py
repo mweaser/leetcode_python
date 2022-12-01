@@ -13,24 +13,18 @@ class Solution:
         if not root:
             return 0
         
-        res = []
-        queue = deque()
-        queue.append(root)
+        q = deque([root])
+        depth = 0
         
-        while queue:
-            curr_level = []
+        while q: 
+            for _ in range(len(q)):
+                node = q.popleft()
+              
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            depth += 1 
             
-            for i in range(len(queue)):
-                curr = queue.popleft()
-                curr_level.append(curr.val)
+        return depth
                 
-                if curr.left:
-                    queue.append(curr.left)
-                if curr.right:
-                    queue.append(curr.right)
-                    
-            res.append(curr_level)
-        
-        return len(res)
-        
-        
