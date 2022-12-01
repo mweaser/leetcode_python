@@ -1,25 +1,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         
-        stk = []
+        mapping = {
+            ")":"(",
+            "]":"[",
+            "}":"{"
+        }
         
-        seen = {')':'(',
-                ']':'[',
-                '}':'{',
-               }
+        stack = []
         
-        for c in s:
-            if c in seen:
+        for char in s:
+            if char in mapping:
+                top = stack.pop() if stack else "#"
                 
-                top = stk.pop() if stk else ''#''
-                
-                if seen[c] != top:
+                if top != mapping[char]:
                     return False
-                
             else:
-                stk.append(c)
+                stack.append(char)
             
-        
-        return not stk
-        
-        
+        return not stack
+                
