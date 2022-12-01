@@ -29,9 +29,6 @@ class Solution:
                     q.append(n.right)
         
         res.sort()
-        print(res)
-        print(res[k-1])
-        
         return res[k-1]
                 
         
