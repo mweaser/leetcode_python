@@ -16,7 +16,6 @@ class Solution:
         while k:
             final.append(res[0][0])
             res.pop(0)
-            print("res is now: ", res)
             k-=1
         
         return final
