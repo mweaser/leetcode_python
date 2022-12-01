@@ -28,8 +28,7 @@ class Solution:
                 if n.right:
                     q.append(n.right)
         
-        res.sort()
-        return res[k-1]
+        return sorted(res)[k-1]
                 
         
         
