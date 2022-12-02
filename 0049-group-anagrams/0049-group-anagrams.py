@@ -1,14 +1,14 @@
 class Solution:
     def groupAnagrams(self, ele: List[str]) -> List[List[str]]:
-                    
-        seen = {}
-        res = []
         
-        for w in ele:
-            sorted_w = "".join(sorted(list(w)))
-            if sorted_w not in seen:
-                seen[sorted_w] = []
-            seen[sorted_w].append("".join(w))
+        seen = {}
+        
+        for e in ele:
+            s = "".join(sorted(list(e)))
+            
+            if s not in seen:
+                seen[s] = []
+            seen[s].append(e)
         
         return seen.values()
         
