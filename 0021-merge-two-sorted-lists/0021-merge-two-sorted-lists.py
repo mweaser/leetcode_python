@@ -27,14 +27,10 @@ class Solution:
             
             temp_node = temp_node.next
         
-        while l1:
+        if l1:
             temp_node.next = l1
-            l1 = l1.next
-            temp_node = temp_node.next
         
-        while l2:
+        if l2:
             temp_node.next = l2
-            l2 = l2.next
-            temp_node = temp_node.next
             
         return temp.next
