@@ -1,22 +1,15 @@
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
-        start = 0
-        end = 1 
-        intervals.sort(key = lambda x: x[0])
-        
         if len(intervals) < 2:
             return True
         
+        intervals.sort()
         prev = intervals[0]
         
-        for i in range(1,len(intervals)):
-            curr = intervals[i]
-            
-            if curr[start] < prev[end]:
+        for curr in intervals[1:]:
+            if curr[0] < prev[1]:
                 return False
-            
             prev = curr
         
         return True
-            
-            
+        
