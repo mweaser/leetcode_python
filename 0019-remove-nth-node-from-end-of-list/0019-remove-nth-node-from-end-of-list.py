@@ -13,14 +13,10 @@ class Solution:
         while n:
             r = r.next
             n -= 1
-        
-        while r:
-            r = r.next
-            l = l.next
             
+        while r:
+            l = l.next
+            r = r.next
         
         l.next = l.next.next
         return temp_node.next
-            
-        
-        
