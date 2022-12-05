@@ -1,19 +1,12 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
         
-        s = ""
+        res = 0
         
-        while n:
-            s += (str(n % 2))
-            n = n >> 1
+        for i in range(32):
+            bit = (n >> i) & 1
+            res = res | bit << (31 - i)
             
-        diff = 32 - len(s)
-        s += '0' * diff
-            
-        return int(s,2)
-            
-        
-       
-            
+        return res
       
             
