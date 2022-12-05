@@ -1,23 +1,18 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
         
-        s = []
+        s = ""
         
         while n:
-            tmp = n & 1
-            if tmp:
-                s.append('1')
-            else:
-                s.append('0')
+            s += (str(n % 2))
             n = n >> 1
             
         diff = 32 - len(s)
-        s.extend('0' * diff)
+        s += '0' * diff
+            
+        return int(s,2)
+            
         
-        ls = "".join(s)
-        res = int(ls, 2)
-        return res
-    
        
             
       
