@@ -19,4 +19,4 @@ class Solution:
             r = r.next
         
         l.next = l.next.next
-        return temp_node.next
+        return temp_node.next 
